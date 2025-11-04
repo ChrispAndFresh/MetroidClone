@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+
     public GameObject bullet; //Prefab of bullet
 
     // Update is called once per frame
@@ -22,6 +23,11 @@ public class GunController : MonoBehaviour
 
     private void FireGun()
     {
-        Instantiate(bullet, transform.position, transform.rotation);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bullet, transform.position, transform.rotation);
+        }
+
     }
+
 }
