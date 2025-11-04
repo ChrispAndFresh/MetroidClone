@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     public float speed; //Controls bullet speed
-   
+    public int damage; //Controls bullet damage
 
     // Update is called once per frame
     void Update()
@@ -20,10 +20,12 @@ public class Bullet : MonoBehaviour
 
 
 
-        //Checks if what the bullet is overlapping with is NOT the player or gun
-        if (other.gameObject.GetComponent<GunController>() == null && other.gameObject.GetComponent<PlayerController>() == null)
+        //Checks if what the bullet is overlapping with is NOT the player, gun, or other bullet
+        if (other.gameObject.GetComponent<GunController>() == null 
+         && other.gameObject.GetComponent<PlayerController>() == null
+         && other.gameObject.GetComponent<Bullet>() == null)
         {
-            //If the overlapped object is NOT the player or gun, destory the bullet
+            //If the overlapped object is NOT the player, gun, or other bullet destory the bullet
             Destroy(gameObject);
         }
     }

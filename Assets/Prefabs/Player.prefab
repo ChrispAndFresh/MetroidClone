@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ee199354813d45b56ccb823801bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
 --- !u!1 &8903933317236516568
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +269,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cfc953759d062459f6b6c95436c8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 5
-  rb: {fileID: 4581880158124349668}
-  groundCheckDist: 1.5

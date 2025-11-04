@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     private Vector3 direction; //Controls direction player is facing
     public float speed; //Controls speed of player
     public float jumpForce; //Controls height of player jump
@@ -17,10 +18,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb; //Reference to players rigidbody for movement
     public float groundCheckDist; //Distance for which the player is considered "grounded"
 
+    private bool missiles; //Checks if player has missile upgrade
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        missiles = false;
     }
 
     // Update is called once per frame
@@ -106,5 +109,21 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    
+    /// <summary>
+    /// Returns value of bool "hasMissiles"
+    /// </summary>
+    /// <returns>Returns true if player has missile upgrade and false if player does not</returns>
+    public bool HasMissiles()
+    {
+        return missiles;
+    }
+
+
+    /// <summary>
+    /// Sets hasMissiles to true;
+    /// </summary>
+    public void MissileUpgrade()
+    {
+        missiles = true;
+    }
 }
