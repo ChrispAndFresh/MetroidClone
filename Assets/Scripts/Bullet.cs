@@ -11,6 +11,20 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(1f, 0f, 0f) * speed * Time.deltaTime);
+        transform.Translate(new Vector3(0f, 1f, 0f) * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //If other is an enemy, damage them
+
+
+
+        //Checks if what the bullet is overlapping with is NOT the player or gun
+        if (other.gameObject.GetComponent<GunController>() == null && other.gameObject.GetComponent<PlayerController>() == null)
+        {
+            //If the overlapped object is NOT the player or gun, destory the bullet
+            Destroy(gameObject);
+        }
     }
 }
