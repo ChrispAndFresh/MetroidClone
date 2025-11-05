@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/*
+ * Chris Pimentel
+ * 11/4/25
+ * Controls behavior of Big Enemy
+ */
+
 public class BigEnemy : Enemy
 {
     

@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Chris Pimentel
+ * 11/4/25
+ * Template script for enemies containing health, damagae, and speed
+ */
+
 public class Enemy : MonoBehaviour
 {
     public int health = 1; //How much health the enemy has

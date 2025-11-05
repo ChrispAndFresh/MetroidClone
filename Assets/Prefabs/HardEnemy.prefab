@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6263177479191455024}
   - component: {fileID: 1408965783687113287}
   - component: {fileID: 602692531771690202}
+  - component: {fileID: 4836642103173523443}
   m_Layer: 0
   m_Name: HardEnemy
   m_TagString: Untagged
@@ -124,7 +125,34 @@ MonoBehaviour:
   health: 10
   speed: 5
   enemyDamage: 35
-  enemyTrigger: {fileID: 7604383049879653058}
+  enemyTrigger: {fileID: 2325447947147606069}
+--- !u!54 &4836642103173523443
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793415419944066453}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &6917547262795600035
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +164,7 @@ GameObject:
   - component: {fileID: 5934045655909277464}
   - component: {fileID: 7604383049879653058}
   - component: {fileID: 425791972089134320}
+  - component: {fileID: 2325447947147606069}
   m_Layer: 0
   m_Name: HardEnemyTrigger
   m_TagString: Untagged
@@ -189,5 +218,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bab6ca00a7e3718418ae8e8ac8253b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2325447947147606069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917547262795600035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3b631237234a14287bcc955c24ae26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
