@@ -10,15 +10,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int maxHealth; //How much  health the player can have
+    public int maxHealth = 99; //How much  health the player can have
     private int health; //How much health the player currently has
          
     private Vector3 direction; //Controls direction player is facing
-    public float speed; //Controls speed of player
-    public float jumpForce; //Controls height of player jump
+    public float speed = 10; //Controls speed of player
+    public float jumpForce = 5; //Controls height of player jump
 
     public Rigidbody rb; //Reference to players rigidbody for movement
-    public float groundCheckDist; //Distance for which the player is considered "grounded"
+    public float groundCheckDist = 1.5f; //Distance for which the player is considered "grounded"
 
     private bool missiles; //Checks if player has missile upgrade
 
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         missiles = false;
+        health = maxHealth;
     }
 
     // Update is called once per frame

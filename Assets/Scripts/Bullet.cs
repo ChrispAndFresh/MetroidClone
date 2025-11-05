@@ -23,13 +23,17 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If other is an enemy, damage them
-
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            other.gameObject.GetComponent<Enemy>().GetDamaged(damage);
+        }
 
 
         //Checks if what the bullet is overlapping with is NOT the player, gun, or other bullet
-        if (other.gameObject.GetComponent<GunController>() == null 
+        if (other.gameObject.GetComponent<GunController>() == null
          && other.gameObject.GetComponent<PlayerController>() == null
-         && other.gameObject.GetComponent<Bullet>() == null)
+         && other.gameObject.GetComponent<Bullet>() == null
+         && other.gameObject.GetComponent<DontDestroyBullet>() == null)
         {
             //If the overlapped object is NOT the player, gun, or other bullet destory the bullet
             Destroy(gameObject);
