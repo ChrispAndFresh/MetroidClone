@@ -5,18 +5,20 @@ using UnityEngine;
 /*
  * Chris Pimentel
  * 11/4/25
- * When collected, player's bullets are upgrades to missiles
+ * When collected, upgrades the players max health and completely heals them
  */
 
-public class MissileUpgrade : MonoBehaviour
+public class HealthUpgrade : MonoBehaviour
 {
+    public int health;
+
     private void OnTriggerEnter(Collider other)
     {
         //Checks if what is overlapping is the player
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            //Turns player bullets into missiles
-            other.gameObject.GetComponent<PlayerController>().MissileUpgrade();
+            //Increases player's max health
+            other.gameObject.GetComponent<PlayerController>().HealthUpgrade(health);
             Destroy(gameObject);
         }
     }

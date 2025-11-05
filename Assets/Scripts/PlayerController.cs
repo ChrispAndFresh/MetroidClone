@@ -5,12 +5,14 @@ using UnityEngine;
 /*
  * Chris Pimentel
  * 11/4/25
- * Manages movement of Player
+ * Manages movement and other aspects of the Player
  */
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public int maxHealth; //How much  health the player can have
+    private int health; //How much health the player currently has
+         
     private Vector3 direction; //Controls direction player is facing
     public float speed; //Controls speed of player
     public float jumpForce; //Controls height of player jump
@@ -110,6 +112,31 @@ public class PlayerController : MonoBehaviour
 
 
     /// <summary>
+    /// Takes health away from player by a certain amount
+    /// </summary>
+    /// <param name="damage"></param>
+    public void GetDamaged(int damage)
+    {
+        health -= damage;
+    }
+
+
+    /// <summary>
+    /// Refills health of the player by a certain amount
+    /// Health can NOT go over maxHealth
+    /// </summary>
+    /// <param name="healing"></param>
+    public void GetHealed(int healing)
+    {
+        health += healing;
+
+        //If health goes past maxHealth, keep health at max
+        if (health > maxHealth)
+            health = maxHealth;
+    }
+
+
+    /// <summary>
     /// Returns value of bool "hasMissiles"
     /// </summary>
     /// <returns>Returns true if player has missile upgrade and false if player does not</returns>
@@ -125,5 +152,25 @@ public class PlayerController : MonoBehaviour
     public void MissileUpgrade()
     {
         missiles = true;
+    }
+
+
+    /// <summary>
+    /// Increases maxHealth and heals player to max
+    /// </summary>
+    /// <param name="addedHealth"></param>
+    public void HealthUpgrade(int addedHealth)
+    {
+        maxHealth += addedHealth;
+        health = maxHealth;
+    }
+
+
+    /// <summary>
+    /// Doubles the jump height of player
+    /// </summary>
+    public void JumpUpgrade()
+    {
+        jumpForce *= 2;
     }
 }

@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Chris Pimentel
+ * 11/4/25
+ * Moves and destroys bullets and allows for damaging of enemies
+ */
+
 public class Bullet : MonoBehaviour
 {
 
