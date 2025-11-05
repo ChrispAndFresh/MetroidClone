@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 {
     public int maxHealth = 99; //How much  health the player can have
     private int health; //How much health the player currently has
+    public HealthBar healthBar; //Reference to health bar on UI
          
     private Vector3 direction; //Controls direction player is facing
     public float speed = 10; //Controls speed of player
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         missiles = false;
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -119,6 +121,7 @@ public class PlayerController : MonoBehaviour
     public void GetDamaged(int damage)
     {
         health -= damage;
+        healthBar.SetHealth(health);
     }
 
 
@@ -134,6 +137,8 @@ public class PlayerController : MonoBehaviour
         //If health goes past maxHealth, keep health at max
         if (health > maxHealth)
             health = maxHealth;
+
+        healthBar.SetHealth(health);
     }
 
 
@@ -164,6 +169,8 @@ public class PlayerController : MonoBehaviour
     {
         maxHealth += addedHealth;
         health = maxHealth;
+
+        healthBar.SetHealth(health);  
     }
 
 
