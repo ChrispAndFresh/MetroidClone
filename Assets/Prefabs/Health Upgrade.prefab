@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 2838841021493522196}
   - component: {fileID: 1715620630692097684}
   - component: {fileID: 4495522183591280716}
+  - component: {fileID: -9038925042063593069}
   m_Layer: 0
   m_Name: Health Upgrade
   m_TagString: Untagged
@@ -320,6 +321,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &-9038925042063593069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017660542941837715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab6ca00a7e3718418ae8e8ac8253b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9198074935384456773
 GameObject:
   m_ObjectHideFlags: 0

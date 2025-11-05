@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4910891743509519401}
   - component: {fileID: 6459199157172707802}
+  - component: {fileID: -5837571037572141928}
   m_Layer: 0
   m_Name: Jump Upgrade
   m_TagString: Untagged
@@ -138,6 +139,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6, y: 0.7, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5837571037572141928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3930558459087251424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab6ca00a7e3718418ae8e8ac8253b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6994722349575892055
 GameObject:
   m_ObjectHideFlags: 0

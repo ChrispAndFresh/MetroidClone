@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5850851277884429575}
   - component: {fileID: 63056681762995889}
   - component: {fileID: 6968777717559723896}
+  - component: {fileID: -8246269899784945198}
   m_Layer: 0
   m_Name: Missile Upgrade
   m_TagString: Untagged
@@ -70,6 +71,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70cfb7d772b7ada4c8198b32ca8b2e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8246269899784945198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89239367693940335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab6ca00a7e3718418ae8e8ac8253b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &119222914194588767
