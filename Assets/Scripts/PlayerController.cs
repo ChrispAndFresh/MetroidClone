@@ -5,22 +5,30 @@ using UnityEngine;
 /*
  * Chris Pimentel
  * 11/4/25
- * Manages movement of Player
+ * Manages movement and other aspects of the Player
  */
 
 public class PlayerController : MonoBehaviour
 {
+    public int maxHealth = 99; //How much  health the player can have
+    private int health; //How much health the player currently has
+    public HealthBar healthBar; //Reference to health bar on UI
+         
     private Vector3 direction; //Controls direction player is facing
-    public float speed; //Controls speed of player
-    public float jumpForce; //Controls height of player jump
+    public float speed = 10; //Controls speed of player
+    public float jumpForce = 5; //Controls height of player jump
 
     public Rigidbody rb; //Reference to players rigidbody for movement
-    public float groundCheckDist; //Distance for which the player is considered "grounded"
+    public float groundCheckDist = 1.5f; //Distance for which the player is considered "grounded"
+
+    private bool missiles; //Checks if player has missile upgrade
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        missiles = false;
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -103,5 +111,74 @@ public class PlayerController : MonoBehaviour
 
         return IsGrounded;
 
+    }
+
+
+    /// <summary>
+    /// Takes health away from player by a certain amount
+    /// </summary>
+    /// <param name="damage"></param>
+    public void GetDamaged(int damage)
+    {
+        health -= damage;
+        healthBar.SetHealth(health);
+    }
+
+
+    /// <summary>
+    /// Refills health of the player by a certain amount
+    /// Health can NOT go over maxHealth
+    /// </summary>
+    /// <param name="healing"></param>
+    public void GetHealed(int healing)
+    {
+        health += healing;
+
+        //If health goes past maxHealth, keep health at max
+        if (health > maxHealth)
+            health = maxHealth;
+
+        healthBar.SetHealth(health);
+    }
+
+
+    /// <summary>
+    /// Returns value of bool "hasMissiles"
+    /// </summary>
+    /// <returns>Returns true if player has missile upgrade and false if player does not</returns>
+    public bool HasMissiles()
+    {
+        return missiles;
+    }
+
+
+    /// <summary>
+    /// Sets hasMissiles to true;
+    /// </summary>
+    public void MissileUpgrade()
+    {
+        missiles = true;
+    }
+
+
+    /// <summary>
+    /// Increases maxHealth and heals player to max
+    /// </summary>
+    /// <param name="addedHealth"></param>
+    public void HealthUpgrade(int addedHealth)
+    {
+        maxHealth += addedHealth;
+        health = maxHealth;
+
+        healthBar.SetHealth(health);  
+    }
+
+
+    /// <summary>
+    /// Doubles the jump height of player
+    /// </summary>
+    public void JumpUpgrade()
+    {
+        jumpForce *= 2;
     }
 }
