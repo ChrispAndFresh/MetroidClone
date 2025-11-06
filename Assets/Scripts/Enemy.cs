@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public float speed = 5f; //How fast the enemy is
     public int enemyDamage = 15; //How much damage the enemy does to the player
 
+    public GameObject healthDrop; //The enemy will drop a health pickup upon death
    
     /// <summary>
     /// Allows the enemy to take damage
@@ -26,11 +27,12 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false); //Disables enemy after death
+            Instantiate(healthDrop, transform.position, transform.rotation);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         //Checks if what is colliding is the player
         if (collision.gameObject.GetComponent<PlayerController>())

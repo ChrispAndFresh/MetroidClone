@@ -125,6 +125,7 @@ MonoBehaviour:
   health: 10
   speed: 5
   enemyDamage: 35
+  healthDrop: {fileID: 1866245031510483849, guid: 62337ccd24bcca3468d41bb5ac3334c1, type: 3}
   enemyTrigger: {fileID: 2325447947147606069}
 --- !u!54 &4836642103173523443
 Rigidbody:

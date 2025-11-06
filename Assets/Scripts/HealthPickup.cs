@@ -5,7 +5,7 @@ using UnityEngine;
 /*
  * Chris Pimentel
  * 11/4/25
- * Allows for picking up health 
+ * Allows for picking up health drops and healing of player
  */
 
 public class HealthPickup : MonoBehaviour
