@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canBeDamaged; //Allows for invincibility frames
     public float iframeTime = 5f; //How long the player is invincible after getting hit
+    private bool isBlinking; //Controls if the player is blinking
          
     private Vector3 direction; //Controls direction player is facing
     public float speed = 10; //Controls speed of player
@@ -33,12 +34,14 @@ public class PlayerController : MonoBehaviour
         health = maxHealth; //health is set to current possible max health
         healthBar.SetMaxHealth(maxHealth); //Set health bar to reflect current health
         canBeDamaged = true; //Player can be damaged to start;
+        isBlinking = false; //Player does no start out blinking
     }
 
     // Update is called once per frame
     void Update()
     {
         Jump();
+        Blink();
     }
 
     private void FixedUpdate()
@@ -198,11 +201,34 @@ public class PlayerController : MonoBehaviour
     {
         //Player can no longer be damaged
         canBeDamaged = false;
+        //Player blinks to indicate iframes
+        isBlinking = true;
+        StartCoroutine(Blink());
+
 
         //Player is invincible for "iframeTime" seconds
         yield return new WaitForSeconds(iframeTime);
 
         //Player can now be damaged
         canBeDamaged = true;
+        //Player no longer blinks
+        isBlinking = false;
+    }
+
+    private IEnumerator Blink()
+    {
+        for (int i = 0; isBlinking; i++)
+        {
+            if (i % 2 == 0)
+            {
+                GetComponent<MeshRenderer>().enabled = false;
+            }
+            else
+            {
+                GetComponent<MeshRenderer>().enabled = true;
+            }
+            yield return new WaitForSeconds(.1f);
+        }
+        GetComponent<MeshRenderer>().enabled = true;
     }
 }
