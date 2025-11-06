@@ -15,6 +15,7 @@ public class GunController : MonoBehaviour
 
     public GameObject bullet; //Prefab of bullet
     public GameObject missile; //Prefab of missle
+    public GameObject spazer; //Prefab of spazer
 
     public float gunCooldownTime = 0.5f; //Determines cooldown time of gun
     private bool canFire; //Determines whether player can fire or not
@@ -42,15 +43,18 @@ public class GunController : MonoBehaviour
     /// </summary>
     private void FireGun()
     {
-        
-            if (player.HasMissiles())
-            {
-                FireMissile();
-            }
-            else
-            {
-                FireBullet();
-            }
+        if (player.HasSpazer())
+        {
+            FireSpazer();
+        }
+        else if (player.HasMissiles())
+        {
+            FireMissile();
+        }
+        else
+        {
+            FireBullet();
+        }
         
         //Sets a cooldown for the gun
         //Players can fire every half second
@@ -77,6 +81,15 @@ public class GunController : MonoBehaviour
         canFire= false;
     }
     
+
+    /// <summary>
+    /// Fires spazer from gun
+    /// </summary>
+    private void FireSpazer()
+    {
+        Instantiate(spazer, transform.position, transform.rotation);
+        canFire= false;
+    }
 
     private IEnumerator WaitToFire()
     {

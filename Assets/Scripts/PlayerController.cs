@@ -27,14 +27,16 @@ public class PlayerController : MonoBehaviour
     public float groundCheckDist = 1.5f; //Distance for which the player is considered "grounded"
 
     private bool missiles; //Checks if player has missile upgrade
+    private bool spazer; //Checks if player has spazer upgrade
 
     // Start is called before the first frame update
     void Start()
     {
-        missiles = false; //Player does not start with missiles;
+        missiles = false; //Player does not start with missiles
+        spazer = false; //Player does not start with spazer
         health = maxHealth; //health is set to current possible max health
         healthBar.SetMaxHealth(maxHealth); //Set health bar to reflect current health
-        canBeDamaged = true; //Player can be damaged to start;
+        canBeDamaged = true; //Player can be damaged to start
         isBlinking = false; //Player does no start out blinking
     }
 
@@ -168,13 +170,31 @@ public class PlayerController : MonoBehaviour
 
 
     /// <summary>
-    /// Sets hasMissiles to true;
+    /// Returns value of bool "hasSpazer"
+    /// </summary>
+    /// <returns></returns>
+    public bool HasSpazer()
+    {
+        return spazer;
+    }
+
+
+    /// <summary>
+    /// Sets hasMissiles to true
     /// </summary>
     public void MissileUpgrade()
     {
         missiles = true;
     }
 
+
+    /// <summary>
+    /// Sets hasSpazer to true
+    /// </summary>
+    public void SpazerUpgrade()
+    {
+        spazer = true;
+    }
 
     /// <summary>
     /// Increases maxHealth and heals player to max
