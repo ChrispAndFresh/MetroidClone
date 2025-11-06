@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool canBeDamaged; //Allows for invincibility frames
     public float iframeTime = 5f; //How long the player is invincible after getting hit
     private bool isBlinking; //Controls if the player is blinking
+    public MeshRenderer gunMesh; //Reference to gun mesh to cause it to blink
          
     private Vector3 direction; //Controls direction player is facing
     public float speed = 10; //Controls speed of player
@@ -222,13 +223,16 @@ public class PlayerController : MonoBehaviour
             if (i % 2 == 0)
             {
                 GetComponent<MeshRenderer>().enabled = false;
+                gunMesh.enabled = false;
             }
             else
             {
                 GetComponent<MeshRenderer>().enabled = true;
+                gunMesh.enabled = true;
             }
             yield return new WaitForSeconds(.1f);
         }
         GetComponent<MeshRenderer>().enabled = true;
+        gunMesh.enabled = true;
     }
 }
