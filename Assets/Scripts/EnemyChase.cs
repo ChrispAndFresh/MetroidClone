@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Chris Pimentel
+ * 11/4/25
+ * Allows for big enemy to chase player when they enter trigger
+ */
+
 public class EnemyChase : MonoBehaviour
 {
     bool chasingPlayer;

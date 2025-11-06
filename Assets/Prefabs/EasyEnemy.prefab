@@ -151,6 +151,7 @@ MonoBehaviour:
   health: 1
   speed: 2
   enemyDamage: 15
+  healthDrop: {fileID: 1866245031510483849, guid: 62337ccd24bcca3468d41bb5ac3334c1, type: 3}
   leftPoint: {fileID: 5653510729714042237}
   rightPoint: {fileID: 420409258063640276}
 --- !u!1 &5693540850457686264
