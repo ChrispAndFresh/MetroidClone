@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 99; //How much  health the player can have
     private int health; //How much health the player currently has
     public HealthBar healthBar; //Reference to health bar on UI
+
+    private bool canBeDamaged; //Allows for invincibility frames
+    public float iframeTime = 5f; //How long the player is invincible after getting hit
          
     private Vector3 direction; //Controls direction player is facing
     public float speed = 10; //Controls speed of player
@@ -26,9 +29,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        missiles = false;
-        health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        missiles = false; //Player does not start with missiles;
+        health = maxHealth; //health is set to current possible max health
+        healthBar.SetMaxHealth(maxHealth); //Set health bar to reflect current health
+        canBeDamaged = true; //Player can be damaged to start;
     }
 
     // Update is called once per frame
@@ -120,8 +124,15 @@ public class PlayerController : MonoBehaviour
     /// <param name="damage"></param>
     public void GetDamaged(int damage)
     {
-        health -= damage;
-        healthBar.SetHealth(health);
+        //Checks if player has no iframes
+        if (canBeDamaged)
+        {
+            health -= damage;
+            healthBar.SetHealth(health);
+        }
+
+        StartCoroutine(WaitToBeDamaged());
+
     }
 
 
@@ -180,5 +191,18 @@ public class PlayerController : MonoBehaviour
     public void JumpUpgrade()
     {
         jumpForce *= 2;
+    }
+
+
+    private IEnumerator WaitToBeDamaged()
+    {
+        //Player can no longer be damaged
+        canBeDamaged = false;
+
+        //Player is invincible for "iframeTime" seconds
+        yield return new WaitForSeconds(iframeTime);
+
+        //Player can now be damaged
+        canBeDamaged = true;
     }
 }
