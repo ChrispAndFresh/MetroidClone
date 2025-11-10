@@ -99,6 +99,8 @@ MonoBehaviour:
   player: {fileID: 2014777153577228304}
   bullet: {fileID: 3204880474520352798, guid: 3911298fe950fe649a6a69332e091d17, type: 3}
   missile: {fileID: 1824708278426589488, guid: 8799303e2cb73824f8c2dfa0fe6083a7, type: 3}
+  spazer: {fileID: 3436815405179752012, guid: 78801adb55fe3c246956b8eb698a4875, type: 3}
+  gunCooldownTime: 0.5
 --- !u!1 &8903933317236516568
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +251,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 99
+  healthBar: {fileID: 0}
+  iframeTime: 5
+  gunMesh: {fileID: 737278066549046098}
   speed: 10
   jumpForce: 5
   rb: {fileID: 4581880158124349668}

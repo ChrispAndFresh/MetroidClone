@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     private bool canBeDamaged; //Allows for invincibility frames
     public float iframeTime = 5f; //How long the player is invincible after getting hit
+    private bool isBlinking; //Controls if the player is blinking
+    public MeshRenderer gunMesh; //Reference to gun mesh to cause it to blink
          
     private Vector3 direction; //Controls direction player is facing
     public float speed = 10; //Controls speed of player
@@ -25,20 +27,24 @@ public class PlayerController : MonoBehaviour
     public float groundCheckDist = 1.5f; //Distance for which the player is considered "grounded"
 
     private bool missiles; //Checks if player has missile upgrade
+    private bool spazer; //Checks if player has spazer upgrade
 
     // Start is called before the first frame update
     void Start()
     {
-        missiles = false; //Player does not start with missiles;
+        missiles = false; //Player does not start with missiles
+        spazer = false; //Player does not start with spazer
         health = maxHealth; //health is set to current possible max health
         healthBar.SetMaxHealth(maxHealth); //Set health bar to reflect current health
-        canBeDamaged = true; //Player can be damaged to start;
+        canBeDamaged = true; //Player can be damaged to start
+        isBlinking = false; //Player does no start out blinking
     }
 
     // Update is called once per frame
     void Update()
     {
         Jump();
+        Blink();
     }
 
     private void FixedUpdate()
@@ -164,13 +170,31 @@ public class PlayerController : MonoBehaviour
 
 
     /// <summary>
-    /// Sets hasMissiles to true;
+    /// Returns value of bool "hasSpazer"
+    /// </summary>
+    /// <returns></returns>
+    public bool HasSpazer()
+    {
+        return spazer;
+    }
+
+
+    /// <summary>
+    /// Sets hasMissiles to true
     /// </summary>
     public void MissileUpgrade()
     {
         missiles = true;
     }
 
+
+    /// <summary>
+    /// Sets hasSpazer to true
+    /// </summary>
+    public void SpazerUpgrade()
+    {
+        spazer = true;
+    }
 
     /// <summary>
     /// Increases maxHealth and heals player to max
@@ -198,11 +222,37 @@ public class PlayerController : MonoBehaviour
     {
         //Player can no longer be damaged
         canBeDamaged = false;
+        //Player blinks to indicate iframes
+        isBlinking = true;
+        StartCoroutine(Blink());
+
 
         //Player is invincible for "iframeTime" seconds
         yield return new WaitForSeconds(iframeTime);
 
         //Player can now be damaged
         canBeDamaged = true;
+        //Player no longer blinks
+        isBlinking = false;
+    }
+
+    private IEnumerator Blink()
+    {
+        for (int i = 0; isBlinking; i++)
+        {
+            if (i % 2 == 0)
+            {
+                GetComponent<MeshRenderer>().enabled = false;
+                gunMesh.enabled = false;
+            }
+            else
+            {
+                GetComponent<MeshRenderer>().enabled = true;
+                gunMesh.enabled = true;
+            }
+            yield return new WaitForSeconds(.1f);
+        }
+        GetComponent<MeshRenderer>().enabled = true;
+        gunMesh.enabled = true;
     }
 }

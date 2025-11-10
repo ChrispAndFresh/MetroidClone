@@ -27,7 +27,11 @@ public class Bullet : MonoBehaviour
         {
             other.gameObject.GetComponent<Enemy>().GetDamaged(damage);
         }
-
+        //If other is a breakable wall, damage it
+        if (other.gameObject.GetComponent<Glass>())
+        {
+            other.gameObject.GetComponent<Glass>().Destroy(damage);
+        }
 
         //Checks if what the bullet is overlapping with is NOT the player, gun, or other bullet
         if (other.gameObject.GetComponent<GunController>() == null

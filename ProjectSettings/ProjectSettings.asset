@@ -753,11 +753,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: ae273864-5cb1-4d65-aa7f-ec83f47e5128
+  cloudProjectId: 457f7d28-12b6-4ed7-9bbf-936bf9f11da7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: MetroidClone
-  organizationId: chasep1010
+  organizationId: chrispy58
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
