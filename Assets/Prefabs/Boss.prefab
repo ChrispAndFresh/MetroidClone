@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2405964798033944759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3686613354986808430}
+  m_Layer: 0
+  m_Name: SpikeSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3686613354986808430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2405964798033944759}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6394, y: 1.755, z: -0.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4911834045331296055}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2647108720822200484
 GameObject:
   m_ObjectHideFlags: 0
@@ -20,7 +51,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4911834045331296055
 Transform:
@@ -35,7 +66,10 @@ Transform:
   m_LocalScale: {x: 13.842761, y: 24.529602, z: 13.187782}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8464860524214565075}
+  - {fileID: 3686613354986808430}
+  - {fileID: 7881014587524685869}
+  - {fileID: 5312245238097280373}
+  - {fileID: 5996901246372758241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &866120132121406855
@@ -133,8 +167,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
@@ -166,7 +200,8 @@ MonoBehaviour:
   health: 500
   speed: 0
   enemyDamage: 20
---- !u!1 &7057351234296339862
+  healthDrop: {fileID: 1866245031510483849, guid: 62337ccd24bcca3468d41bb5ac3334c1, type: 3}
+--- !u!1 &4386376568844444070
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,74 +209,88 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8464860524214565075}
-  - component: {fileID: 3450305918759666676}
-  - component: {fileID: 7066981942568129939}
-  - component: {fileID: 4614365604870699079}
+  - component: {fileID: 5312245238097280373}
   m_Layer: 0
-  m_Name: HardEnemyTrigger
+  m_Name: SpikeSpawn (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8464860524214565075
+--- !u!4 &5312245238097280373
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7057351234296339862}
+  m_GameObject: {fileID: 4386376568844444070}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.639, y: 1.233, z: 0.00075827684}
+  m_LocalScale: {x: 0.040767055, y: 0.072239906, z: 0.075827755}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4911834045331296055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3450305918759666676
-SphereCollider:
+--- !u!1 &7445063457133324948
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7057351234296339862}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7066981942568129939
-MonoBehaviour:
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5996901246372758241}
+  m_Layer: 0
+  m_Name: SpikeSpawn (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5996901246372758241
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7057351234296339862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab6ca00a7e3718418ae8e8ac8253b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4614365604870699079
-MonoBehaviour:
+  m_GameObject: {fileID: 7445063457133324948}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.639, y: 1.03, z: 0.00075827684}
+  m_LocalScale: {x: 0.040767055, y: 0.072239906, z: 0.075827755}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4911834045331296055}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8201752035974428310
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7057351234296339862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc3b631237234a14287bcc955c24ae26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7881014587524685869}
+  m_Layer: 0
+  m_Name: Spike Spawn(1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7881014587524685869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201752035974428310}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.639, y: 1.515, z: -0.035}
+  m_LocalScale: {x: 0.040767055, y: 0.072239906, z: 0.075827755}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4911834045331296055}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
