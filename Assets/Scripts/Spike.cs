@@ -17,7 +17,7 @@ public class Spike : MonoBehaviour
 {
     public ParticleSystem spikeParticles; //The prefab of a particle system that will give a visual clue to player of an incoming spike.
 
-    public Enemy enemy;
+    public Enemy IsAlive;
 
     public GameObject spike;
     public float riseHeight = 5f;
@@ -56,7 +56,7 @@ public class Spike : MonoBehaviour
     void Update()
     {
 
-        if (enemy.health > 0)
+        if (IsAlive.health > 0)
         {
             if (canStart && !rising && !isMoving)
             {
@@ -67,7 +67,7 @@ public class Spike : MonoBehaviour
                 StartCoroutine(MoveSpike());
             }
         }
-        else if (enemy.health <= 0)
+        else if (IsAlive.health <= 0)
         {
 
 
