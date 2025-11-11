@@ -56,7 +56,7 @@ public class Spike : MonoBehaviour
     void Update()
     {
 
-        if (IsAlive.health > 0)
+        if (IsAlive.health > 0 && IsAlive.health < 500)
         {
             if (canStart && !rising && !isMoving)
             {

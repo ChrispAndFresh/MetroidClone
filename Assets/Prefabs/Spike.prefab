@@ -212,7 +212,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 20
+  m_VersionIndex: 26
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spikeParticles: {fileID: 1673424691844022868, guid: 87609150d1d1243ddb1d017790d9bbfc, type: 3}
-  enemy: {fileID: 0}
+  IsAlive: {fileID: 0}
   spike: {fileID: 6729489562877571451}
   riseHeight: 5
   riseSpeed: 3
