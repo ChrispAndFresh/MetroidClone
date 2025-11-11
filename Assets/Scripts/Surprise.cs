@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -15,6 +16,13 @@ using UnityEngine.UIElements;
 public class Surprise : MonoBehaviour
 {
 
+    public ParticleSystem slamSmoke; //For effects that will spawn to enchance the shockwave of the slam. 
+
+    public GameObject smokeSpawn;
+    public GameObject smokeSpawn1;
+    public GameObject smokeSpawn2;
+    public GameObject smokeSpawn3;
+
     public Enemy enemy;//Needed for the health value check.
     public Vector3 axis = Vector3.back;//Axis to rotate around.
     public float degrees = -15f;//How far to roatate.
@@ -23,7 +31,10 @@ public class Surprise : MonoBehaviour
 
     private Quaternion origonalRotation;
 
+
+
     private bool isRotating = false; //Check to make sure the animation is playing.
+    public bool shockwave; //Fires a tigger once every time the slam happens.
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +52,7 @@ public class Surprise : MonoBehaviour
             {
                 StartCoroutine(Slam());
             }
-
         }
-
-
-
     }
 
     private IEnumerator Slam()
@@ -55,14 +62,24 @@ public class Surprise : MonoBehaviour
         Quaternion targetRotation = Quaternion.AngleAxis(degrees, axis) * startRotation;
 
         //The cooldown for the boss to use this ability.
-        //float seconds = Random.Range(5, 30);
-        //yield return new WaitForSeconds(seconds);
+        float seconds = UnityEngine.Random.Range(5, 10);
+        yield return new WaitForSeconds(seconds);
 
-        yield return StartCoroutine(Rotate(startRotation, targetRotation, duration));
-        yield return new WaitForSeconds(1);
-        yield return StartCoroutine(Rotate(targetRotation, startRotation, returnDuration));
+        yield return StartCoroutine(Rotate(startRotation, targetRotation, duration)); //Rotates up
+        yield return new WaitForSeconds(1); //Waits for a second at peak rotation.
+        yield return StartCoroutine(Rotate(targetRotation, startRotation, returnDuration));//Slams down
+
+        //Particles for dramtic effect
+        Instantiate(slamSmoke, smokeSpawn.transform.position, Quaternion.Euler(-90, 0, 0));
+        Instantiate(slamSmoke, smokeSpawn1.transform.position, Quaternion.Euler(-90, 0, 0));
+        Instantiate(slamSmoke, smokeSpawn2.transform.position, Quaternion.Euler(-90, 0, 0));
+        Instantiate(slamSmoke, smokeSpawn3.transform.position, Quaternion.Euler(-90, 0, 0));
 
         isRotating = false;
+        shockwave = true;
+
+
+
     }
 
     private IEnumerator Rotate(Quaternion from, Quaternion to, float time)
@@ -76,12 +93,5 @@ public class Surprise : MonoBehaviour
             yield return null;
         }
         transform.rotation = to;
-
-
     }
-
-
-
-
-
 }

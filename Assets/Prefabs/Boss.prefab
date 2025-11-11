@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2405964798033944759
+--- !u!1 &832656454761778202
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3686613354986808430}
+  - component: {fileID: 6754197002412172355}
   m_Layer: 0
-  m_Name: SpikeSpawn
+  m_Name: slamSmokeSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3686613354986808430
+--- !u!4 &6754197002412172355
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2405964798033944759}
+  m_GameObject: {fileID: 832656454761778202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6394, y: 1.755, z: -0.035}
+  m_LocalPosition: {x: -0.383, y: 0.977, z: -0.032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4911834045331296055}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1565003311186034505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4856426285442314986}
+  m_Layer: 0
+  m_Name: slamSmokeSpawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4856426285442314986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565003311186034505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.383, y: 0.977, z: 0.047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63,13 +94,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 33.5, y: 4.25, z: 0}
-  m_LocalScale: {x: 13.842761, y: 24.529602, z: 13.187782}
+  m_LocalScale: {x: 14, y: 25, z: 14}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3686613354986808430}
-  - {fileID: 7881014587524685869}
-  - {fileID: 5312245238097280373}
-  - {fileID: 5996901246372758241}
+  - {fileID: 6754197002412172355}
+  - {fileID: 4856426285442314986}
+  - {fileID: 8570208925351197769}
+  - {fileID: 4134583849476792203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &866120132121406855
@@ -184,7 +215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c7675b5596b4def95ffc79fa23df25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boss: 0
+  enemy: {fileID: 5133436649191098865}
+  axis: {x: 0, y: 0, z: 1}
+  degrees: -15
+  duration: 2.5
+  returnDuration: 0.75
 --- !u!114 &5133436649191098865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +236,7 @@ MonoBehaviour:
   speed: 0
   enemyDamage: 20
   healthDrop: {fileID: 1866245031510483849, guid: 62337ccd24bcca3468d41bb5ac3334c1, type: 3}
---- !u!1 &4386376568844444070
+--- !u!1 &3518654521856049921
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,30 +244,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5312245238097280373}
+  - component: {fileID: 8570208925351197769}
   m_Layer: 0
-  m_Name: SpikeSpawn (2)
+  m_Name: slamSmokeSpawn (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5312245238097280373
+--- !u!4 &8570208925351197769
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4386376568844444070}
+  m_GameObject: {fileID: 3518654521856049921}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.639, y: 1.233, z: 0.00075827684}
-  m_LocalScale: {x: 0.040767055, y: 0.072239906, z: 0.075827755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.383, y: 0.908, z: 0.047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4911834045331296055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7445063457133324948
+--- !u!1 &4620590755683918982
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,56 +275,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5996901246372758241}
+  - component: {fileID: 4134583849476792203}
   m_Layer: 0
-  m_Name: SpikeSpawn (3)
+  m_Name: slamSmokeSpawn (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5996901246372758241
+--- !u!4 &4134583849476792203
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7445063457133324948}
+  m_GameObject: {fileID: 4620590755683918982}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.639, y: 1.03, z: 0.00075827684}
-  m_LocalScale: {x: 0.040767055, y: 0.072239906, z: 0.075827755}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4911834045331296055}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8201752035974428310
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7881014587524685869}
-  m_Layer: 0
-  m_Name: Spike Spawn(1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7881014587524685869
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8201752035974428310}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.639, y: 1.515, z: -0.035}
-  m_LocalScale: {x: 0.040767055, y: 0.072239906, z: 0.075827755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.383, y: 0.908, z: -0.028}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4911834045331296055}

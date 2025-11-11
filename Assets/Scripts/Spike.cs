@@ -69,6 +69,7 @@ public class Spike : MonoBehaviour
         }
         else if (IsAlive.health <= 0)
         {
+            //This is here to stop them from doing anything after the boss dies. 
 
 
         }
