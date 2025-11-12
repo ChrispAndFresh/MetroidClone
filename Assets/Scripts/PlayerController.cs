@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
  * Chris Pimentel
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float iframeTime = 5f; //How long the player is invincible after getting hit
     private bool isBlinking; //Controls if the player is blinking
     public MeshRenderer gunMesh; //Reference to gun mesh to cause it to blink
-         
+
     private Vector3 direction; //Controls direction player is facing
     public float speed = 10; //Controls speed of player
     public float jumpForce = 5; //Controls height of player jump
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour
 
     private bool missiles; //Checks if player has missile upgrade
     private bool spazer; //Checks if player has spazer upgrade
+
+    public int sceneIndex; //Relates to GameOver Screen scene index
+    public float waitTime = 0.5f; //Delay time between scene transitions
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +86,7 @@ public class PlayerController : MonoBehaviour
             //Moves Player
             rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
         }
-       
+
     }
 
 
@@ -135,6 +139,11 @@ public class PlayerController : MonoBehaviour
         {
             health -= damage;
             healthBar.SetHealth(health);
+
+            if (health <= 0)
+            {
+                StartCoroutine(WaitToLoadScene(waitTime, sceneIndex));
+            }
         }
 
         StartCoroutine(WaitToBeDamaged());
@@ -205,7 +214,7 @@ public class PlayerController : MonoBehaviour
         maxHealth += addedHealth;
         health = maxHealth;
 
-        healthBar.SetHealth(health);  
+        healthBar.SetHealth(health);
     }
 
 
@@ -255,4 +264,20 @@ public class PlayerController : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = true;
         gunMesh.enabled = true;
     }
+
+
+
+    /// <summary>
+    /// Loads Scenes with slight delay
+    /// </summary>
+    /// <param name="waitTime"></param>
+    /// <param name="sceneIndex"></param>
+    /// <returns></returns>
+    public IEnumerator WaitToLoadScene(float waitTime, int sceneIndex)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+
 }

@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     /// If the enemy's health goes to zero or bellow, destroy the enemy
     /// </summary>
     /// <param name="damage"></param>
-    public void GetDamaged(int damage)
+    public virtual void GetDamaged(int damage)
     {
         health -= damage;
 
