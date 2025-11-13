@@ -21,7 +21,9 @@ public class Boss : Enemy
         if (health <= 0)
         {
             StartCoroutine(WaitToLoadScene(waitTime, sceneIndex));
-            gameObject.SetActive(false); //Disables enemy after death
+            //gameObject.SetActive(false); //Disables enemy after death
+            GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<CapsuleCollider>().enabled = false;
             Instantiate(healthDrop, transform.position, transform.rotation);
         }
     }
@@ -35,6 +37,7 @@ public class Boss : Enemy
     /// <returns></returns>
     public IEnumerator WaitToLoadScene(float waitTime, int sceneIndex)
     {
+        print("Coroutine running");
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(sceneIndex);
     }
